@@ -1,0 +1,151 @@
+<head>
+  <title>Juego Palabras</title>
+</head>
+
+<body>
+
+<!--en todo el body esta la app JuegoFrases  y el controller listaFrases-->
+<div    ng-app="JuegoFrases" ng-controller="listaFrases">
+
+  <div class="container">
+       <header>
+         <h3>Gestor de frases</h3>
+         <login-buttons></login-buttons>
+        </header>
+
+<!--encabezado de estadisticas-->
+       <div class="ui small statistics" >
+         <div class="statistic">
+           <div class="value">
+             {{frases.length}}
+           </div>
+           <div class="label">
+             Frases
+           </div>
+         </div>
+         <div class="statistic">
+           <div class="value">
+             {{(frases |filter:{categoria:"Principiante"}).length}}
+           </div>
+           <div class="label">
+             Principiante
+           </div>
+         </div>
+         <div class="statistic">
+           <div class="value">
+              {{(frases |filter:{categoria:"Intermedio"}).length}}
+           </div>
+           <div class="label">
+             Intermedio
+           </div>
+         </div>
+         <div class="statistic">
+           <div class="value">
+              {{(frases |filter:{categoria:"Avanzado"}).length}}
+           </div>
+           <div class="label">
+             Avanzado
+           </div>
+         </div>
+       </div>
+<!--fin de la seccion de estadisticas-->
+
+<!--formulario para agregar frases-->
+<div class="ui raised  red segment">
+    <form ng-submit="agregarFrase(nueva); nueva='';" ng-show="$root.currentUser">
+       <div class="ui form">
+         <div class="ui pointing below label">Frase </div>
+           <input rows="2" placeholder="Frase a ser analizada por el jugador" ng-model="nueva.frase">
+      </div>
+      <br>
+      <div class="ui right pointing label">Palabra clave</div>
+      <div class="ui input">
+           <input type="text" placeholder="Palabra clave" ng-model="nueva.palabraClave" >
+            <div class="floating ui teal  label">{{(frases |filter:nueva.palabraClave).length}}</div>
+      </div>
+      <br>
+      <br>
+      <div class="ui pointing below label">Respuesta correcta </div>
+      <div class="ui form">
+          <textarea rows="1" placeholder= "Correcta" ng-model="nueva.significadoCorrecto"></textarea>
+     </div>
+
+     <br>
+         <div class="ui pointing below label">Respuesta incorrecta </div>
+     <div class="ui form">
+             <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto"></textarea>
+    </div>
+      <br>
+
+
+          <div class="inline fields">
+            <label>Nivel?</label>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Nivel" checked="checked" ng-model="nueva.principiante" value= "principiante">
+                <label>Principiante</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Nivel" ng-model="nueva.intermedio" value="intermedio">
+                <label>Intermedio</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="Nivel" ng-model="nueva.avanzado" value="avanzado">
+                <label>Avanzado</label>
+              </div>
+            </div>
+            </div>
+
+
+      <br>
+      <button class="ui right labeled icon button" type= "submit"> <!--;nuevaFrase=''-->
+        <i class="save icon"></i>
+        Agregar
+      </button>
+</form>
+</div>
+<!--fin del formulario para agregar frases-->
+
+<!-- tabla que muestra todas las frases -->
+<div class="ui raised green segment" ng-show="$root.currentUser">>
+        <div class="ui left icon input">
+       <input type="text" placeholder="Filtrar"  ng-model="filtroClave">
+       <div class="floating ui teal  label">{{(frases |filter:filtroClave).length}}</div>
+       <i class="search icon"></i>
+     </div>
+
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Opciones</th>
+          <th>Frase</th>
+          <th>Palabra clave</th>
+          <th>Significado correcto</th>
+          <th>Significado incorrecto</th>
+          <th>Categoria</th>
+        </tr></thead>
+      <tbody ng-repeat="frase in frases | filter:filtroClave">
+         <tr>
+          <td> <button class="ui icon button" ng-click="eliminarFrase(frase._id)"><i class="delete icon"></i></button> </td>
+          <td>{{frase.frase}}</td>
+          <td>{{frase.palabraClave}}</td>
+          <td>{{frase.significadoCorrecto}}</td>
+          <td>{{frase.significadoIncorrecto}}</td>
+          <td>{{frase.principiante}}{{frase.intermedio}}{{frase.avanzado}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+
+        <tr><th colspan="6">
+          </th>
+      </tr></tfoot>
+    </table>
+</div>
+</div>
+<!-- tabla que muestra todas las frases -->
+
+</body>
