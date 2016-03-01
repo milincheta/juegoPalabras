@@ -32,11 +32,9 @@ Accounts.ui.config({
                               $scope.frases.push( {
                               frase: nueva.frase,
                               palabraClave: nueva.palabraClave,
-                              significadoCorrecto: nueva.significadoCorrecto,
+                              significados: nueva.significadoCorrecto,
                               significadoIncorrecto: nueva.significadoIncorrecto,
-                              principiante: nueva.principiante,
-                              intermedio: nueva.intermedio,
-                              avanzado: nueva.avanzado,
+                              nivel:nueva.nivel,
                               createdAt: new Date() })
                             };
 

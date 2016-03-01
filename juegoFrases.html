@@ -81,19 +81,19 @@
                           <div class="ui right pointing label">Nivel</div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel" checked="checked" ng-model="nueva.principiante" value= "principiante">
+                              <input type="radio" name="Nivel" checked="checked" ng-model="nueva.nivel" value= "principiante">
                               <label>Principiante</label>
                             </div>
                           </div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel" ng-model="nueva.intermedio" value="intermedio">
+                              <input type="radio" name="Nivel"  ng-model="nueva.nivel" value="intermedio">
                               <label>Intermedio</label>
                             </div>
                           </div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel" ng-model="nueva.avanzado" value="avanzado">
+                              <input type="radio" name="Nivel"  ng-model="nueva.nivel" value="avanzado">
                               <label>Avanzado</label>
                             </div>
                           </div>
@@ -140,7 +140,7 @@
           <th>Palabra clave</th>
           <th>Significado correcto</th>
           <th>Significado incorrecto</th>
-          <th>Categoria</th>
+          <th>Nivel</th>
         </tr></thead>
       <tbody ng-repeat="frase in frases | filter:filtroClave">
          <tr>
@@ -149,7 +149,7 @@
           <td>{{frase.palabraClave}}</td>
           <td>{{frase.significadoCorrecto}}</td>
           <td>{{frase.significadoIncorrecto}}</td>
-          <td>{{frase.principiante}}{{frase.intermedio}}{{frase.avanzado}}</td>
+          <td>{{frase.nivel}}</td>
         </tr>
       </tbody>
       <tfoot>
