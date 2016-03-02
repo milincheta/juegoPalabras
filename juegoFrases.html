@@ -81,7 +81,7 @@
                           <div class="ui right pointing label">Nivel</div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel" checked="checked" ng-model="nueva.nivel" value= "principiante">
+                              <input type="radio" name="Nivel" ng-model="nueva.nivel" value= "principiante">
                               <label>Principiante</label>
                             </div>
                           </div>
@@ -93,7 +93,7 @@
                           </div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel"  ng-model="nueva.nivel" value="avanzado">
+                              <input type="radio" name="Nivel" checked="checked" ng-model="nueva.nivel" value="avanzado">
                               <label>Avanzado</label>
                             </div>
                           </div>
@@ -107,11 +107,21 @@
                       <textarea rows="1" placeholder= "Correcta" ng-model="nueva.significadoCorrecto"></textarea>
                  </div>
                  <br> <br>
-                     <div class="ui pointing below label">Respuesta incorrecta </div>
+                     <div class="ui pointing below label">Respuesta incorrecta 1</div>
                  <div class="ui form">
-                         <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto"></textarea>
+                         <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto.uno"></textarea>
                 </div>
                   <br>
+                  <div class="ui pointing below label">Respuesta incorrecta 2</div>
+              <div class="ui form">
+                      <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto.dos"></textarea>
+             </div>
+               <br>
+               <div class="ui pointing below label">Respuesta incorrecta 3</div>
+           <div class="ui form">
+                   <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto.tres"></textarea>
+          </div>
+            <br>
                 <button class="ui  right floated right labeled icon button" type= "submit">
                   <i class="save icon"></i>
                   Agregar
@@ -145,11 +155,11 @@
       <tbody ng-repeat="frase in frases | filter:filtroClave">
          <tr>
           <td> <button class="ui icon button" ng-click="eliminarFrase(frase._id)"><i class="delete icon"></i></button> </td>
-          <td>{{frase.frase}}</td>
-          <td>{{frase.palabraClave}}</td>
-          <td>{{frase.significadoCorrecto}}</td>
-          <td>{{frase.significadoIncorrecto}}</td>
-          <td>{{frase.nivel}}</td>
+          <td>{{frase.frase.frase}}</td>
+          <td>{{frase.frase.palabraClave}}</td>
+          <td>{{frase.frase.significadoCorrecto}}</td>
+          <td>{{frase.frase.significadoIncorrecto.uno}}  -  {{frase.frase.significadoIncorrecto.dos}}</td>
+          <td>{{frase.frase.nivel}}</td>
         </tr>
       </tbody>
       <tfoot>

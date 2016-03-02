@@ -5,7 +5,7 @@ if (Meteor.isServer){
     prettyJson: true
   });
 
-  // Get All collection
+  // Get All collection http://localhost:3000/api/frases
   Api.addCollection(Frases);
 
   // Get by Param

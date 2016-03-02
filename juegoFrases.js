@@ -4,7 +4,7 @@ Frases = new Mongo.Collection('frases');
 if (Meteor.isClient) {
 
 Accounts.config({
-  forbidClientAccountCreation: true,
+  forbidClientAccountCreation: false,
 });
 
 Accounts.ui.config({
@@ -28,14 +28,8 @@ Accounts.ui.config({
       );
 
           //funcion para agregar una frase
-      $scope.agregarFrase =  function(nueva) {
-                              $scope.frases.push( {
-                              frase: nueva.frase,
-                              palabraClave: nueva.palabraClave,
-                              significados: nueva.significadoCorrecto,
-                              significadoIncorrecto: nueva.significadoIncorrecto,
-                              nivel:nueva.nivel,
-                              createdAt: new Date() })
+      $scope.agregarFrase =  function(frase) {
+                              $scope.frases.push({frase})
                             };
 
         //funcion para eliminar una frase ya cargada
