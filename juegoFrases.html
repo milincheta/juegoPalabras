@@ -35,7 +35,7 @@
 
          <div class="statistic">
            <div class="value">
-             {{(frases |filter:{categoria:"Principiante"}).length}}
+             {{(frases |filter:{nivel:"principiante"}).length}}
            </div>
            <div class="label">
              Principiante
@@ -43,7 +43,7 @@
          </div>
          <div class="statistic">
            <div class="value">
-              {{(frases |filter:{categoria:"Intermedio"}).length}}
+              {{(frases |filter:{nivel:"intermedio"}).length}}
            </div>
            <div class="label">
              Intermedio
@@ -51,7 +51,7 @@
          </div>
          <div class="statistic">
            <div class="value">
-              {{(frases |filter:{categoria:"Avanzado"}).length}}
+              {{(frases |filter:{nivel:"avanzado"}).length}}
            </div>
            <div class="label">
              Avanzado
