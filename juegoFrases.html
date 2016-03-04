@@ -35,7 +35,9 @@
 
          <div class="statistic">
            <div class="value">
-             {{(frases |filter:{nivel:"principiante"}).length}}
+             <div ng-repeat="e in filtered = (frases | filter: {frase: {nivel: 'principiante'}})">
+             </div>
+             {{filtered.length}}
            </div>
            <div class="label">
              Principiante
@@ -43,7 +45,9 @@
          </div>
          <div class="statistic">
            <div class="value">
-              {{(frases |filter:{nivel:"intermedio"}).length}}
+             <div ng-repeat="e in filtered = (frases | filter: {frase: {nivel: 'intermedio'}})">
+             </div>
+             {{filtered.length}}             
            </div>
            <div class="label">
              Intermedio
@@ -51,7 +55,9 @@
          </div>
          <div class="statistic">
            <div class="value">
-              {{(frases |filter:{nivel:"avanzado"}).length}}
+             <div ng-repeat="e in filtered = (frases | filter: {frase: {nivel: 'avanzado'}})">
+             </div>
+             {{filtered.length}}
            </div>
            <div class="label">
              Avanzado
@@ -59,6 +65,7 @@
          </div>
        </div>
      </div>
+
 <!--fin de la seccion de estadisticas-->
 
 

@@ -4,7 +4,7 @@ Frases = new Mongo.Collection('frases');
 if (Meteor.isClient) {
 
 Accounts.config({
-  forbidClientAccountCreation: true,
+  forbidClientAccountCreation: false,
 });
 
 Accounts.ui.config({
