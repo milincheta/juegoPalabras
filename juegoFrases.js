@@ -23,7 +23,7 @@ Accounts.ui.config({
         // funciona para retornar las frases ordenadas, adicionalmente
         //relaciona el modelo en el html con el modelo de mongo db :  ng-repeat="frase in frases"
         $scope.frases = $meteor.collection( function() {
-        return Frases.find({}, { sort: { frase: 1 } })
+        return Frases.find({}, { sort: {"frase.palabraClave": 1 } })
                                                         }
       );
 
