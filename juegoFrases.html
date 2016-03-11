@@ -82,8 +82,10 @@
                   <div class="ui right pointing label">Palabra clave</div>
                   <div class="ui input">
                        <input type="text" placeholder="Palabra clave" ng-model="nueva.palabraClave" >
+                       <!-- se comenta porque no anda el filtro por un solo campo
                         <div ng-model= "filtrada =(frases |filter:nueva.palabraClave).length"></div>
-                        <div class="floating ui red  label" ng-show="filtrada != 0">Duplicada</div>
+                        <div class="floating ui red  label" >{{filtrada}}</div>
+                        -->
                   </div>
                   <br><br><br>
                   <div class="inline fields">
