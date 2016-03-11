@@ -1,5 +1,6 @@
 <head>
   <title>Juego Palabras</title>
+    <meta charset="utf-8">
 </head>
 
 <body>
@@ -81,7 +82,8 @@
                   <div class="ui right pointing label">Palabra clave</div>
                   <div class="ui input">
                        <input type="text" placeholder="Palabra clave" ng-model="nueva.palabraClave" >
-                        <div class="floating ui teal  label">{{(frases |filter:nueva.palabraClave).length}}</div>
+                        <div ng-model= "filtrada =(frases |filter:nueva.palabraClave).length"></div>
+                        <div class="floating ui red  label" ng-show="filtrada != 0">Duplicada</div>
                   </div>
                   <br><br><br>
                   <div class="inline fields">
@@ -121,7 +123,8 @@
                   <br>
 
             <br>
-                <button class="ui  right floated right labeled icon button" type= "submit">
+              <div ng-model= "filtrada =(frases |filter:nueva.palabraClave).length"></div>
+                <button class="ui  right floated right labeled icon button" type= "submit" ng-show="filtrada == 0">
                   <i class="save icon"></i>
                   Agregar
                 </button>

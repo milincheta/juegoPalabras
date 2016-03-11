@@ -28,8 +28,10 @@ Accounts.ui.config({
       );
 
           //funcion para agregar una frase
-      $scope.agregarFrase =  function(frase) {
-                              $scope.frases.push({frase})
+      $scope.agregarFrase =  function(nuevaFrase) {
+                              var cantidad = Frases.find ({"frase.palabraClave":nuevaFrase.palabraClave}).count()
+                              if (cantidad ===0)
+                              $scope.frases.push({nuevaFrase});
                             };
 
         //funcion para eliminar una frase ya cargada
