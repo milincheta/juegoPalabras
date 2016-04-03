@@ -4,7 +4,7 @@ Frases = new Mongo.Collection('frases');
 if (Meteor.isClient) {
 
 Accounts.config({
-  forbidClientAccountCreation: false,
+  forbidClientAccountCreation: true,
 });
 
 Accounts.ui.config({
@@ -32,7 +32,8 @@ Accounts.ui.config({
                               var cantidad = Frases.find ({"frase.palabraClave":frase.palabraClave}).count()
                               if (cantidad ===0)
                               $scope.frases.push({frase});
-                              else alert("Duplicada la palabra clave. No se guarda.");
+                              else $('#modalView')
+                                    .modal('show');
                             };
 
         //funcion para eliminar una frase ya cargada
@@ -41,9 +42,6 @@ Accounts.ui.config({
               $scope.frases.remove({_id:id});
             }
         };
-
-
-
 
 
         }]);
