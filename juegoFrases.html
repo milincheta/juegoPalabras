@@ -66,7 +66,6 @@
          </div>
        </div>
      </div>
-
 <!--fin de la seccion de estadisticas-->
 
 
@@ -77,22 +76,19 @@
          <div class="ui two column very relaxed stackable grid">
             <div class="column">
                    <div class="ui pointing below label">Frase </div>
-                   <input rows="2" placeholder="Frase a ser analizada por el jugador" ng-model="nueva.frase">
+                   <input rows="2" placeholder="Frase a ser analizada por el jugador" ng-model="nueva.frase" required>
                   <br><br><br>
                   <div class="ui right pointing label">Palabra clave</div>
                   <div class="ui input">
-                       <input type="text" placeholder="Palabra clave" ng-model="nueva.palabraClave" >
-                       <!-- se comenta porque no anda el filtro por un solo campo
-                        <div ng-model= "filtrada =(frases |filter:nueva.palabraClave).length"></div>
-                        <div class="floating ui red  label" >{{filtrada}}</div>
-                        -->
+                       <input type="text" placeholder="Palabra clave" ng-model="nueva.palabraClave" required>
+
                   </div>
                   <br><br><br>
                   <div class="inline fields">
                           <div class="ui right pointing label">Nivel</div>
                           <div class="field">
                             <div class="ui radio checkbox">
-                              <input type="radio" name="Nivel" ng-model="nueva.nivel" value= "principiante">
+                              <input  type="radio" name="Nivel" ng-model="nueva.nivel" value= "principiante">
                               <label>Principiante</label>
                             </div>
                           </div>
@@ -115,17 +111,17 @@
             <div class="column">
                   <div class="ui pointing below label">Respuesta correcta </div>
                   <div class="ui form">
-                      <textarea rows="1" placeholder= "Correcta" ng-model="nueva.significadoCorrecto"></textarea>
+                      <textarea rows="1" placeholder= "Correcta" ng-model="nueva.significadoCorrecto" required></textarea>
                  </div>
                  <br> <br>
                      <div class="ui pointing below label">Respuesta incorrecta</div>
                  <div class="ui form">
-                         <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto.uno"></textarea>
+                         <textarea rows="1" placeholder= "Incorrecta" ng-model="nueva.significadoIncorrecto.uno" required></textarea>
                 </div>
                   <br>
 
             <br>
-              <div ng-model= "filtrada =(frases |filter:nueva.palabraClave).length"></div>
+
                 <button class="ui  right floated right labeled icon button" type= "submit">
                   <i class="save icon"></i>
                   Agregar
@@ -140,21 +136,15 @@
 
 <!-- tabla que muestra todas las frases -->
 <div class="ui raised green segment" ng-show="$root.currentUser">
-        <div class="ui left icon input">
-       <input type="text" placeholder="Filtrar"  ng-model="filtroClave">
-       <div class="floating ui teal  label">{{(frases |filter:filtroClave).length}}</div>
-       <i class="search icon"></i>
-     </div>
-
     <table class="ui celled table">
       <thead>
         <tr>
           <th>Borrar</th>
-          <th>Frase</th>
-          <th>Palabra clave</th>
+          <th><div class="ui input" ><input type="text" placeholder="Frase"  ng-model="filtroClave.frase.frase"></div></th>
+          <th><div class="ui input" ><input type="text" placeholder="Palabra clave"  ng-model="filtroClave.frase.palabraClave"></div></th>
           <th>Significado correcto</th>
           <th>Significado incorrecto</th>
-          <th>Nivel</th>
+          <th><div class="ui input" ><input type="text" placeholder="Nivel"  ng-model="filtroClave.frase.nivel"></div></th>
         </tr></thead>
       <tbody ng-repeat="frase in frases | filter:filtroClave">
          <tr>
